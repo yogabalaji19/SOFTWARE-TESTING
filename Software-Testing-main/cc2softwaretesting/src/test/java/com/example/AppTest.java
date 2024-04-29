@@ -36,12 +36,12 @@ public class AppTest
     public void setup() {
         reports = new ExtentReports();
         ExtentSparkReporter spark = new ExtentSparkReporter(
-                "C:\\Users\\91701\\Desktop\\it sckcet\\softwareTesting-1\\ExtentReports\\exercise1\\report.html");
+                "E:\\cc2softwaretesting\\report.html");
         reports.attachReporter(spark);
         test = reports.createTest("Demo Result");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        PropertyConfigurator.configure("C:\\Users\\91701\\Desktop\\cc2softwaretesting\\src\\test\\java\\com\\resources\\log4j.properties");
+        PropertyConfigurator.configure("E:\\cc2softwaretesting\\src\\test\\java\\com\\resources\\log4j.properties");
     }
     @BeforeMethod
     public void navigateUrl() {
@@ -51,7 +51,7 @@ public class AppTest
     public void testCase1() throws IOException, InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"rhf_header_element\"]/nav/div/div[3]/form/div/div[1]/a")).click();
         driver.findElement(By.linkText("Books")).click();
-        FileInputStream fs = new FileInputStream("C:\\Users\\91701\\Downloads\\input for websites.xlsx");
+        FileInputStream fs = new FileInputStream("E:\\input for websites.xlsx");
         XSSFWorkbook work = new XSSFWorkbook(fs);
         XSSFSheet sheet = work.getSheet("Bank login");
         XSSFRow row = sheet.getRow(6);
@@ -71,18 +71,18 @@ public class AppTest
     public void testCase2() throws InterruptedException {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(By.xpath("//*[@id=\"rhfCategoryFlyout_Audiobooks\"]")));
-        driver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div/ul/li[5]/div/div/div[1]/div/div[2]/div[1]/dd/a[1]")).click();
+        //driver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div/ul/li[5]/div/div/div[1]/div/div[2]/div[1]/dd/a[1]")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"addToBagForm_2940159543998\"]/input[11]")).click();
+        //driver.findElement(By.xpath("//*[@id=\"addToBagForm_2940159543998\"]/input[11]")).click();
     }
     @Test(priority = 2)
     public void testCase3() throws InterruptedException, IOException {
-        driver.findElement(By.xpath("//*[@id=\"footer\"]/div/dd/div/div/div[1]/div/a[5]")).click();
+       // driver.findElement(By.xpath("//*[@id=\"footer\"]/div/dd/div/div/div[1]/div/a[5]")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"rewards-modal-link\"]")).click();
+       // driver.findElement(By.xpath("//*[@id=\"rewards-modal-link\"]")).click();
         Thread.sleep(2000);
         File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = "C:\\Users\\91701\\Desktop\\it sckcet\\softwareTesting-1\\ExtentReports\\exercise1\\calculator.png";
+        String path = "E:\\cc2softwaretesting\\calculator.png";
         FileUtils.copyFile(screen, new File(path));
         
     }
